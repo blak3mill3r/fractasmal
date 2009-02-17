@@ -1,0 +1,29 @@
+				//fnumtype i3x = ix*ix*ix - iy*iy*ix - 2*iy*iy*ix;
+				//fnumtype i3y = ix*ix*iy - iy*iy*iy + 2*iy*ix*ix;
+				//double i3x = ix*ix*ix - iy*iy*ix - 2*iy*iy*ix;
+				//double i3y = ix*ix*iy - iy*iy*iy + 2*iy*ix*ix;
+				// mandelbrot
+				//ix = i2x + cx;
+				//iy = i2y + cy;
+				// homer's spirit guide (10:00 is up)
+				//ix = i3y + i2x + constant.r;
+				//iy = i3x + i2y + constant.i;
+				//something
+				//(pr+pi)(cr+ci)
+				//(pr*cr - pi*ci) + (pr*ci + cr*pi)i +
+				//fnumtype icx = (ix*constant.r - iy*constant.i);
+				//fnumtype icy = (ix*constant.i + iy*constant.r);
+				//ix =  i2x + icx;
+				//iy =  i2y + icy;
+
+
+				//double constr2 = (constant.r * constant.r) - (constant.i * constant.i);
+				//double consti2 = 2 * constant.i * constant.r;
+				//ix2 += constr2 - ix3;
+				//iy2 += consti2 - ix3;
+				
+				// Julia cubed
+				//double tix = ix*ix*ix - iy*iy*ix - 2*iy*iy*ix + constant.r;
+				//double tiy = ix*ix*iy - iy*iy*iy + 2*iy*ix*ix + constant.i;
+				//ix = tix;
+				//iy = tiy;

@@ -1,0 +1,57 @@
+# data file for the Fltk User Interface Designer (fluid)
+version 1.0108 
+header_name {.hpp} 
+code_name {.cpp}
+class FractalWidgetUI {open
+} {
+  Function {FractalWidgetUI()} {open
+  } {
+    Fl_Window window {
+      label {Ashcroft's random alums} open
+      xywh {150 143 800 600} type Double color 180 labelcolor 32 size_range {800 600 0 0} visible
+    } {
+      Fl_Box fw {
+        label fractal selected
+        xywh {0 -2 564 412} labeltype NO_LABEL labelfont 13 labelsize 9 labelcolor 148 align 16
+        code0 {\#include "fractal_widget.hpp"}
+        class FractalWidget
+      }
+      Fl_Group {} {open
+        xywh {564 0 236 408} box PLASTIC_THIN_DOWN_BOX color 177 labeltype NO_LABEL labelfont 13 labelsize 10 labelcolor 32
+      } {
+        Fl_Value_Slider {} {
+          label {palette bias}
+          callback {fw->palette_offset=(findextype)((Fl_Slider *)o)->value();
+fw->rgbefy();
+window->redraw();}
+          xywh {644 3 156 17} type {Horz Knob} labelfont 13 labelsize 10 align 4 maximum 255 step 1 textfont 13
+        }
+      }
+      Fl_Group animator_ui {
+        label Animation
+        xywh {0 408 800 192} box PLASTIC_THIN_DOWN_BOX color 77 labelfont 13 labelsize 10 labelcolor 32 align 17
+        code0 {\#include "fractal_animator.hpp"}
+        code1 {\#include "animator_ui.hpp"}
+        class AnimatorUI
+      } {}
+      Fl_Button {} {
+        label {New Palette}
+        callback {//srand((unsigned)time(0));
+fw->make_palette();
+fw->rgbefy();
+window->redraw();}
+        xywh {568 322 80 82} labelfont 13 labelsize 10
+      }
+    }
+    code {animator = new FractalAnimator(animator_ui, fw);
+animator_ui->set_animator(animator);} {}
+  }
+  Function {show(int argc, char **argv)} {open
+  } {
+    code {window->color(FL_WHITE);
+window->end();
+window->show();} {}
+  }
+  decl {FractalAnimator *animator;} {public
+  }
+} 

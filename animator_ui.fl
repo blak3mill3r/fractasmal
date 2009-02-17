@@ -1,0 +1,36 @@
+# data file for the Fltk User Interface Designer (fluid)
+version 1.0108 
+header_name {.hpp} 
+code_name {.cpp}
+widget_class AnimatorUI {open
+  xywh {30 291 800 192} type Double labelfont 13 labelsize 10
+  code0 {\#include "fractal_animator.hpp"}
+  class Fl_Group visible position_relative
+} {
+  decl {FractalAnimator *animator;} {public
+  }
+  Fl_Value_Slider slider_frame {
+    label frame
+    callback {animator->set_frame((ulong)o->value());}
+    xywh {36 1 764 16} type {Horz Knob} labelfont 13 labelsize 10 align 4 maximum 1200 step 1 textfont 13
+  }
+  Fl_Round_Button check_keyframe {
+    label keyframe
+    callback {animator->keyframe_at();}
+    xywh {55 21 16 20} down_box ROUND_DOWN_BOX labelfont 13 labelsize 10 align 4
+  }
+  Fl_Button button_last_keyframe {
+    label {<}
+    callback {animator->go_to_last_kf();}
+    tooltip {Last key frame} xywh {72 20 24 24} labelfont 4 labelsize 32
+  }
+  Fl_Button button_next_keyframe {
+    label {>}
+    callback {animator->go_to_next_kf();}
+    tooltip {Last key frame} xywh {100 20 24 24} labelfont 4 labelsize 32
+  }
+  Function {set_animator(FractalAnimator *anim)} {open return_type void
+  } {
+    code {animator = anim;} {}
+  }
+} 
